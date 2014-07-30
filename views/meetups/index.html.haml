@@ -1,0 +1,17 @@
+.page-title
+  %h1 Meetups
+  = link_to 'Add New Meetup', new_meetup_path, class: 'btn btn-primary'
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th Meetup Name
+      %th Actions
+  %tbody
+    - @meetups.each do |meetup|
+      %tr
+        %td= meetup.name
+        %td
+          = link_to 'View', meetup_path(meetup)
+          |
+          = link_to 'Edit', edit_meetup_path(meetup)
